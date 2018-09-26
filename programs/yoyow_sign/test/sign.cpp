@@ -33,5 +33,10 @@ int main()
                                "5JPTHdCy5QNhgKsTeQGxPRxM5FYj9MKDLoNLvTcrKQgg5GqAPa7");
    printf("decrypt_memo:\n%s\n", memo.c_str());
 
+   // update_auth
+   tx = "{\"ref_block_prefix\":4151460282,\"operations\":[[3,{\"owner\":{\"account_uid_auths\":[],\"key_auths\":[[\"YYW5qTjzqQM2wjxYwVEai32i74Vvq2UJzEXBpUKL3FR1VYH4T23MF\",1]],\"weight_threshold\":1},\"secondary\":{\"account_uid_auths\":[],\"key_auths\":[[\"YYW79gbH9egqK4TuWhgijsqsTCKprHZPNPBKxKhTDKGeUacoGVyZZ\",1]],\"weight_threshold\":1},\"uid\":\"438553867\",\"fee\":{\"total\":{\"amount\":289840,\"asset_id\":0},\"options\":{\"from_csaf\":{\"amount\":289840,\"asset_id\":0}}},\"active\":{\"account_uid_auths\":[],\"key_auths\":[[\"YYW58pYuWmxhDH3GQbC4jGdDb6x3FKqE8B1GmCGEK1aA72LhVGzY8\",1]],\"weight_threshold\":1}}]],\"expiration\":\"2018-09-26T10:53:42\",\"ref_block_num\":55404,\"signatures\":[]}";
+   result = signature( tx, wif, chain );
+   printf("signature[update_auth]:\n%s\n", result.c_str() );
+
    return 0;
 }
