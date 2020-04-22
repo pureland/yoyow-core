@@ -48,6 +48,7 @@
 #include <cstdint>
 #include <graphene/db/object_id.hpp>
 #include <graphene/chain/protocol/config.hpp>
+#include <boost/multiprecision/cpp_int.hpp>
 
 namespace graphene { namespace chain {
    using namespace graphene::db;
@@ -95,6 +96,24 @@ namespace graphene { namespace chain {
    typedef uint64_t                    advertising_aid_type;
    typedef uint64_t                    advertising_order_oid_type;
    typedef uint64_t                    custom_vote_vid_type;
+
+   //using bigint = boost::multiprecision::number<boost::multiprecision::cpp_int_backend<>>;
+   using u128 =  boost::multiprecision::number<boost::multiprecision::cpp_int_backend<128, 128, boost::multiprecision::unsigned_magnitude, boost::multiprecision::unchecked, void>>;
+   using u256 =  boost::multiprecision::number<boost::multiprecision::cpp_int_backend<256, 256, boost::multiprecision::unsigned_magnitude, boost::multiprecision::unchecked, void>>;
+   using s256 =  boost::multiprecision::number<boost::multiprecision::cpp_int_backend<256, 256, boost::multiprecision::signed_magnitude, boost::multiprecision::unchecked, void>>;
+   using u160 =  boost::multiprecision::number<boost::multiprecision::cpp_int_backend<160, 160, boost::multiprecision::unsigned_magnitude, boost::multiprecision::unchecked, void>>;
+   using s160 =  boost::multiprecision::number<boost::multiprecision::cpp_int_backend<160, 160, boost::multiprecision::signed_magnitude, boost::multiprecision::unchecked, void>>;
+   using u512 =  boost::multiprecision::number<boost::multiprecision::cpp_int_backend<512, 512, boost::multiprecision::unsigned_magnitude, boost::multiprecision::unchecked, void>>;
+   using s512 =  boost::multiprecision::number<boost::multiprecision::cpp_int_backend<512, 512, boost::multiprecision::signed_magnitude, boost::multiprecision::unchecked, void>>;
+   using u256s = std::vector<u256>;
+   using u160s = std::vector<u160>;
+   using u256Set = std::set<u256>;
+   using u160Set = std::set<u160>;
+
+   typedef fc::ripemd160               Address;
+   typedef std::vector<char>           bytes;
+   typedef fc::sha256                  h256;
+   typedef std::vector<fc::sha256>     h256s;
 
    account_uid_type                    calc_account_uid( uint64_t id_without_checksum );
    bool                                is_valid_account_uid( const account_uid_type uid );

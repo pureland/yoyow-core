@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-namespace yoyow
+namespace Yoyow
 {
 namespace vm
 {
